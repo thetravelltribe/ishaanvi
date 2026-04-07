@@ -1,0 +1,287 @@
+<header><!-- TOP BAR -->
+<div class="top-bar">
+    <div>
+        <span>📞 +91-7011623288 |  +91-8882324446 </span>
+        <span>📧 ishaanviinterior@gmail.com</span>
+    </div>
+    <div>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-x-twitter"></i>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">
+  <img src="images/2.png" alt="KanoonPath Logo">
+</div>
+
+    <div class="menu-btn">&#9776;</div>
+
+    <div class="nav-links">
+       
+<a href="index.html">Home</a>
+
+        <a href="aboutus.html">About Us</a>
+<a href="service.html">Services</a>
+
+
+
+    </div>
+
+</nav></header>
+
+
+<style>
+/* ---------- TOP BAR --------- */
+.top-bar{
+    background: linear-gradient(90deg, var(--dark), var(--dark-soft), var(--dark-elevated));
+    color: var(--text-main);
+    padding: 8px 20px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-light);
+    text-align: center; /* ✅ ensures proper wrapping */
+}
+
+/* TEXT */
+.top-bar span{
+    font-weight: 500;
+    color: var(--text-muted);
+    display: inline-flex; /* ✅ better alignment with icons */
+    align-items: center;
+    gap: 5px;
+}
+
+/* ICONS */
+.top-bar i{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* ICON HOVER */
+.top-bar i:hover{
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(212,175,55,0.7);
+}
+
+/* Highlight */
+.top-bar span strong {
+    color: var(--primary);
+}
+
+/* ========================= */
+/* 📱 TABLET */
+/* ========================= */
+@media (max-width: 768px){
+    .top-bar {
+        padding: 6px 12px;
+        gap: 10px;
+        font-size: 13px;
+    }
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+@media (max-width:600px){
+    .top-bar {
+        flex-direction: column; /* ✅ stack items */
+        gap: 6px;
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .top-bar span {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+/* ========================= */
+/* 📱 SMALL MOBILE */
+/* ========================= */
+@media (max-width:400px){
+    .top-bar {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+
+    .top-bar span {
+        flex-direction: column; /* ✅ icon below text if needed */
+        gap: 2px;
+    }
+}
+
+
+
+/* ---------- NAVBAR ---------- */
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 50px;
+    background: var(--white);
+    box-shadow: 0 6px 20px var(--shadow-light);
+    position:sticky;
+    top:0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* LOGO */
+.logo{
+    display:flex;
+    align-items:center;
+    margin-left:100px;
+}
+
+.logo img{
+    height: 58px;
+    width: auto;
+    object-fit: contain;
+    cursor: pointer;
+    transition: 0.3s ease;
+    transform: scale(1.2);
+}
+
+.logo img:hover{
+    transform:scale(1.05);
+}
+
+
+/* NAV LINKS */
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    z-index:2000;
+    list-style: none;
+}
+
+.nav-links a{
+    color: var(--dark);
+    text-decoration:none;
+    font-size:17px;
+    font-weight:600;
+    letter-spacing:0.4px;
+    padding:10px 16px;
+    border-radius:8px;
+    transition:all .35s ease;
+}
+
+/* 🔥 PREMIUM HOVER */
+.nav-links a:hover{
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--dark);
+    box-shadow: 0 8px 20px rgba(212,175,55,0.35);
+    transform: translateY(-2px);
+}
+
+/* ACTIVE LINK */
+.nav-links a.active{
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--dark);
+}
+
+/* MENU ICON */
+.menu-btn{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
+    color: var(--dark);
+}
+
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+
+    .navbar{
+        padding:12px 22px;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:100%;
+        right:-100%;
+        width:100%;
+        max-width:350px;
+        background: var(--white);
+        display:flex;
+        flex-direction:column;
+        padding:18px 0;
+        box-shadow:0 15px 35px var(--shadow-medium);
+        transition:all .45s ease;
+        border-radius:0 0 16px 16px;
+        max-height:80vh;
+        overflow-y:auto;
+    }
+
+    .nav-links li{
+        width:100%;
+        list-style:none;
+    }
+
+    .nav-links a{
+        display:block;
+        width:100%;
+        text-align:left;
+        padding:14px 22px;
+        font-size:15px;
+        border-bottom:1px solid rgba(0,0,0,0.05);
+    }
+
+    .nav-links a:last-child{
+        border-bottom:none;
+    }
+
+    /* Mobile Hover */
+    .nav-links a:hover{
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--dark);
+        box-shadow:none;
+        transform:none;
+    }
+
+    /* Active Mobile */
+    .nav-links a.active{
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: var(--dark);
+        font-weight:700;
+    }
+
+    .nav-links.show{
+        right:0;
+    }
+
+    /* Dropdown */
+    .dropdown-menu{
+        position:relative;
+        display:none;
+        list-style:none;
+        background: rgba(212,175,55,0.08);
+    }
+
+    .dropdown.active .dropdown-menu{
+        display:block;
+    }
+}
+
+/* RESET */
+.nav-links ul {
+  margin: 0;
+  padding: 0;
+}
+
+
+</style>

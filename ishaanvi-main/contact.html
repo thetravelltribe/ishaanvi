@@ -1,0 +1,179 @@
+<div class="contact-section">
+
+    <div class="contact-box">
+
+
+      <div class="contact-left">
+        <h3>Get In Touch</h3>
+        <p>Get in touch for your interior design needs</p>
+
+        <p><b>📍 Location:</b>Greater Noida, India</p>
+        <p><b>📧 Email:</b>ishaanviinterior@gmail.com</p>
+        <p><b>📞 Phone:</b> +91 7011623288 | 8882324446</p>
+      </div>
+
+
+      <div class="contact-right">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <input type="text" placeholder="Phone Number">
+        <textarea rows="4" placeholder="Your Message"></textarea>
+
+        <button>Submit</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <style>
+  /* ---------- CONTACT SECTION ---------- */
+.contact-section{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:60px 8%; /* ✅ reduced side padding */
+    background: linear-gradient(135deg, var(--dark), var(--dark-soft));
+}
+
+/* ---------- BOX ---------- */
+.contact-box{
+    width:100%;
+    max-width:900px;
+    background: var(--dark-elevated);
+    padding:25px; /* ✅ slightly reduced */
+    border-radius:14px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px; /* ✅ tighter spacing */
+    box-shadow:0 10px 30px var(--shadow-light);
+    border:1px solid var(--border-light);
+}
+
+/* ---------- HEADINGS ---------- */
+.contact-box h3{
+    color: var(--primary);
+    font-size:24px; /* ✅ slightly smaller */
+    margin-bottom:8px;
+}
+
+/* ---------- LEFT TEXT ---------- */
+.contact-left p{
+    color: var(--text-muted);
+    margin:8px 0;
+    font-size:14px; /* ✅ better mobile size */
+    line-height:1.5;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border-radius:8px;
+    transition:all .3s ease;
+    background: transparent;
+    border:1px solid transparent;
+}
+
+.contact-left p:hover{
+    background: rgba(212,175,55,0.08);
+    border-color: rgba(212,175,55,0.2);
+    transform:translateX(4px);
+}
+
+/* ---------- INPUTS ---------- */
+.contact-right input,
+.contact-right textarea{
+    width:100%;
+    padding:11px; /* ✅ slightly tighter */
+    border-radius:8px;
+    border:1px solid var(--border-light);
+    margin:6px 0;
+    font-size:14px;
+    outline:none;
+    transition:.3s;
+    background: var(--dark-soft);
+    color: var(--text-main);
+}
+
+/* focus */
+.contact-right input:focus,
+.contact-right textarea:focus{
+    border-color: var(--primary);
+    box-shadow: 0 0 8px rgba(212,175,55,0.3);
+}
+
+/* ---------- BUTTON ---------- */
+.contact-right button{
+    width:100%;
+    padding:12px;
+    border:none;
+    color: var(--dark);
+    border-radius:8px;
+    font-weight:700;
+    font-size:15px;
+    cursor:pointer;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    transition:.3s;
+}
+
+/* hover */
+.contact-right button:hover{
+    transform:translateY(-2px);
+    background: linear-gradient(to right, var(--secondary), var(--accent));
+}
+
+/* ---------- GLOBAL FIX ---------- */
+*{
+    box-sizing:border-box;
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+@media(max-width:768px){
+
+    .contact-section{
+        padding:40px 15px; /* ✅ FIX: prevent side overflow */
+    }
+
+    .contact-box{
+        grid-template-columns:1fr;
+        padding:20px;
+    }
+
+    .contact-box h3{
+        font-size:20px;
+        text-align:center;
+    }
+
+    .contact-left p{
+        font-size:13.5px;
+        padding:8px 10px;
+    }
+}
+
+/* ========================= */
+/* 📱 SMALL MOBILE */
+/* ========================= */
+@media(max-width:480px){
+
+    .contact-section{
+        padding:30px 12px;
+    }
+
+    .contact-box{
+        padding:15px;
+        gap:15px;
+    }
+
+    .contact-right input,
+    .contact-right textarea{
+        font-size:13px;
+        padding:10px;
+    }
+
+    .contact-right button{
+        font-size:14px;
+        padding:10px;
+    }
+}
+  </style>
