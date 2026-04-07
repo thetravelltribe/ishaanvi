@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Details</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* ROOT COLORS (Luxury Theme) */
+:root {
+  --primary: #D4AF37;
+  --secondary: #C5A46D;
+  --accent: #8C7853;
+
+  --dark: #0A0A0A;
+  --dark-soft: #121212;
+  --dark-elevated: #1E1E1E;
+
+  --text: #EDEDED;
+  --text-soft: #AFAFAF;
+}
+
+/* BODY */
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: var(--dark);
+  color: var(--text);
+}
+
+/* HERO */
+.hero {
+  
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle glow */
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  
+  top: -100px;
+  right: -100px;
+  filter: blur(60px);
+}
+
+.hero h1 {
+  color: var(--primary);
+  font-size: 48px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  color: var(--text-soft);
+  font-size: 16px;
+}
+
+/* 🔥 SERVICE TABS */
+.service-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 25px 20px;
+  background: var(--dark-soft);
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.service-tabs button {
+  padding: 10px 22px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.service-tabs button:hover {
+  background: var(--primary);
+  color: black;
+  box-shadow: 0 0 12px rgba(212,175,55,0.4);
+}
+
+.service-tabs button.active {
+  background: var(--primary);
+  color: black;
+  box-shadow: 0 0 15px rgba(212,175,55,0.5);
+}
+
+/* SECTION */
+.section {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* IMAGE STYLE */
+.section img {
+  width: 50%;
+  border-radius: 14px;
+  transition: 0.4s ease;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.section img:hover {
+  transform: scale(1.03);
+}
+
+/* TEXT */
+.text {
+  width: 50%;
+}
+
+.text h2 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.text p {
+  color: var(--text-soft);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #111, #1a1a1a);
+}
+
+.cta a {
+  background: var(--primary);
+  color: black;
+  padding: 14px 34px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cta a:hover {
+  box-shadow: 0 0 20px rgba(212,175,55,0.6);
+  transform: translateY(-2px);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .section img,
+  .text {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="header"></div>
+
+<!-- SERVICE BUTTONS -->
+<div class="service-tabs">
+  <button onclick="loadService('civil')" id="btn-civil">Civil</button>
+  <button onclick="loadService('interior')" id="btn-interior">Interior</button>
+  <button onclick="loadService('renovation')" id="btn-renovation">Renovation</button>
+</div>
+<!-- HERO -->
+<div class="hero">
+  <h1 id="title"></h1>
+  <p id="description"></p>
+</div>
+
+
+
+<!-- CONTENT -->
+<div id="content"></div>
+
+<div id="contact-container"></div>
+
+<div id="footer"></div>
+
+<script>
+const data = {
+ civil: {
+  title: "Civil Construction",
+  description: "We deliver end-to-end civil construction solutions, combining structural strength, modern engineering, and aesthetic excellence to create durable and elegant spaces.",
+
+  sections: [
+
+    {
+      title: "Planning & Design",
+      text: "Our process begins with in-depth planning and architectural design. We analyze site conditions, client requirements, and functional needs to create layouts that are both structurally sound and visually appealing.",
+      img: "images/Picture11.jpg"
+    },
+
+    {
+      title: "Site Preparation",
+      text: "We ensure proper site clearance, soil testing, and groundwork preparation. This stage lays the foundation for a stable and long-lasting structure.",
+      img: "images/siteprep.webp"
+    },
+
+    {
+      title: "Structural Construction",
+      text: "From foundation to framework, we use high-quality materials and advanced techniques to build strong, safe, and durable structures that stand the test of time.",
+      img: "images/struct.webp"
+    },
+
+    {
+      title: "Execution & Project Management",
+      text: "Our experienced team manages the entire construction process with precision, ensuring timely delivery, cost efficiency, and strict quality control at every stage.",
+      img: "images/cons.webp"
+    },
+
+    {
+      title: "Finishing & Detailing",
+      text: "We focus on high-quality finishes, including plastering, flooring, and detailing, to enhance both durability and visual appeal of the space.",
+      img: "images/Picture15.jpg"
+    },
+
+    {
+      title: "Quality Assurance & Safety",
+      text: "We follow strict safety standards and conduct regular quality checks to ensure every project meets industry benchmarks and client expectations.",
+      img: "images/qual.webp"
+    }
+
+  ]
+},
+
+ interior: {
+  title: "Interior Designing",
+  description: "We transform ordinary spaces into luxurious, functional, and inspiring environments that reflect your personality and lifestyle.",
+
+  sections: [
+
+    {
+      title: "Concept & Design Planning",
+      text: "We begin by understanding your vision, lifestyle, and preferences to create a personalized design concept. Our team blends creativity with functionality to craft spaces that are both beautiful and practical.",
+      img: "images/Picture16.jpg"
+    },
+
+    {
+      title: "Modern & Luxury Designs",
+      text: "Our designs combine modern aesthetics with timeless elegance. From minimal to luxurious themes, we create interiors that elevate the overall look and feel of your space.",
+      img: "images/Picture1.jpg"
+    },
+
+    {
+      title: "Space Optimization",
+      text: "We maximize every inch of your space with smart layouts and innovative storage solutions, ensuring comfort, efficiency, and seamless movement.",
+      img: "images/Picture2.jpg"
+    },
+
+    {
+      title: "Material & Color Selection",
+      text: "We carefully select premium materials, textures, and color palettes that enhance the ambiance and create a cohesive design language throughout your space.",
+      img: "images/material.webp"
+    },
+
+    {
+      title: "Execution & Installation",
+      text: "Our skilled team ensures smooth execution with attention to detail, maintaining quality standards and timely delivery for a hassle-free experience.",
+      img: "images/Picture4.jpg"
+    },
+
+    {
+      title: "Styling & Final Touch",
+      text: "We add the finishing touches with décor, lighting, and accessories to bring the entire design together, creating a space that feels complete and luxurious.",
+      img: "images/Picture5.jpg"
+    }
+
+  ]
+},
+
+  renovation: {
+  title: "Renovation & Remodeling",
+  description: "We transform existing spaces into modern, functional, and visually stunning environments through smart renovation and expert craftsmanship.",
+
+  sections: [
+
+    {
+      title: "Consultation & Planning",
+      text: "We begin by understanding your needs, assessing the current space, and creating a strategic renovation plan that aligns with your vision and budget.",
+      img: "images/plann.webp"
+    },
+
+    {
+      title: "Home Makeover",
+      text: "From complete redesigns to partial upgrades, we revamp your interiors to give your home a fresh, modern, and elegant look.",
+      img: "images/makeov.webp"
+    },
+
+    {
+      title: "Structural Improvements",
+      text: "We enhance the strength and durability of your property by upgrading structural elements, ensuring long-lasting performance and safety.",
+      img: "images/struc.webp"
+    },
+
+    {
+      title: "Space Reconfiguration",
+      text: "We redesign layouts to improve space utilization, flow, and functionality, making your space more practical and comfortable.",
+      img: "images/Picture5.jpg"
+    },
+
+    {
+      title: "Modern Upgrades",
+      text: "We integrate modern materials, fixtures, and finishes to elevate the overall look and bring your space up to contemporary standards.",
+      img: "images/modern.webp"
+    },
+
+    {
+      title: "Finishing & Final Touches",
+      text: "Attention to detail is key — we complete your renovation with premium finishes, lighting, and décor that bring everything together beautifully.",
+      img: "images/Picture4.jpg"
+    }
+
+  ]
+}
+};
+
+/* 🔥 MAIN FUNCTION */
+function loadService(type) {
+  const service = data[type];
+  if (!service) return;
+
+  document.getElementById("title").innerText = service.title;
+  document.getElementById("description").innerText = service.description;
+
+  const container = document.getElementById("content");
+  container.innerHTML = "";
+
+  service.sections.forEach(section => {
+    container.innerHTML += `
+      <div class="section">
+        <img src="${section.img}" alt="">
+        <div class="text">
+          <h2>${section.title}</h2>
+          <p>${section.text}</p>
+        </div>
+      </div>
+    `;
+  });
+
+  // active button
+  document.querySelectorAll(".service-tabs button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+  document.getElementById("btn-" + type).classList.add("active");
+}
+
+/* DEFAULT LOAD */
+loadService("civil");
+
+window.addEventListener("DOMContentLoaded", () => {
+
+  Promise.all([
+    fetch("header.html").then(res => res.text()),
+    fetch("footer.html").then(res => res.text()),
+    fetch("contact.html").then(res => res.text())   // ✅ ADDED
+  ])
+    .then(([header, footer, contact]) => {
+
+      // Insert Header & Footer
+      document.getElementById("header").innerHTML = header;
+      document.getElementById("footer").innerHTML = footer;
+
+      // ✅ Insert Contact Section
+      const contactContainer = document.getElementById("contact-container");
+      if (contactContainer) {
+        contactContainer.innerHTML = contact;
+      }
+
+      // ✅ Attach menu button AFTER header loads
+      const menuBtn = document.querySelector(".menu-btn");
+      const navLinks = document.querySelector(".nav-links");
+
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+      }
+
+    })
+    .catch(error => console.error("Error loading components:", error));
+
+});
+</script>
+
+</body>
+</html>
