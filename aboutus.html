@@ -328,6 +328,53 @@ At Ishaanvi, we believe every space tells a story. Our mission is to design and 
     .catch(error => console.error("Error loading components:", error));
 
 });
+
+// ✅ Function
+function saveToSheet() {
+
+    const data = new URLSearchParams();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
+
+    // Basic validation
+    if (!name || !email || !phone || !message) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    data.append("name", name);
+    data.append("email", email);
+    data.append("phone", "+91" + phone);
+    data.append("message", message);
+
+    fetch("https://script.google.com/macros/s/AKfycbyIGlpZcquLQOabUx0bUNaXJFOzZcKHKfo4gg8Jf9qvztKKFDPEpJ_SiSXcXIpbG6mA/exec", {
+        method: "POST",
+        body: data
+    })
+    .then(res => res.text())
+    .then(() => {
+        alert("Message sent successfully!");
+
+        // clear form
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("message").value = "";
+    })
+    .catch(error => {
+        alert("Error sending message!");
+        console.error(error);
+    });
+}
+
+document.addEventListener("click", function (e) {
+    if (e.target && e.target.id === "submitBtn") {
+        saveToSheet();
+    }
+});
 </script>
 </body>
 </html>
